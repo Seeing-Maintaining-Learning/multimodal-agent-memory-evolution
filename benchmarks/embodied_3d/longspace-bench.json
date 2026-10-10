@@ -50,5 +50,40 @@
     }
   ],
   "review_status": "verified",
-  "adjudication_notes": []
+  "adjudication_notes": [],
+  "manuscript_table_annotation": {
+    "reviewed_on": "2026-10-09",
+    "family": "Embodied",
+    "source_url": "https://arxiv.org/abs/2606.05677v1",
+    "pdf_sha256": "f64f4e43684f82066119f7dbfe5ff155daf7a67ca361f2169df6198b41c9ff1a",
+    "shared_scores": {
+      "CE": "partial",
+      "LE": "direct",
+      "SC": "direct",
+      "CF": "none",
+      "UQ": "none",
+      "MA": "none"
+    },
+    "modality_scores": {
+      "SM": "direct",
+      "OS": "direct",
+      "TS": "partial"
+    },
+    "evidence": [
+      {
+        "section": "Section 3.1; Appendix A.1–A.4, Table 7; Figures 14–16",
+        "pdf_pages": [
+          4,
+          12,
+          17
+        ]
+      }
+    ],
+    "rationale": {
+      "SM": "Direct: remembered layouts, relations, locations, and routes are required by scored room-tour questions.",
+      "OS": "Direct: 285 State Change questions test updated object/scene state across limited camera views; Figure 14 compares a door before and after opening.",
+      "TS": "Partial: route planning/recall concerns navigation sequences, but no goal execution, task-completion state, or ongoing progress protocol is scored.",
+      "SC": "Direct: the explicitly scored State Change subtask supplies direct capability evidence; persistent model-memory mutation is not implied."
+    }
+  }
 }

@@ -2,7 +2,7 @@
 
 [Survey README](../../README.md) · [Image Architecture Papers](../../architectures/image/README.md#architecture-papers) · [Scope & Terminology](../../README.md#scope--terminology)
 
-**20 benchmark/evaluation resources**, grouped by the repository’s primary modality labels. These include dedicated memory tests, broader evaluations, and scoped comparisons. Scope qualifications are included in the individual records; manuscript Table 2 may group resources into different panels.
+**19 benchmark/evaluation resources**, grouped by the repository’s primary modality labels. These include dedicated memory tests, broader evaluations, and scoped comparisons. Scope qualifications are included in the individual records; manuscript Table 2 may group resources into different panels.
 
 Paper lists are alphabetical by system or benchmark name. `arXiv` links point to the paper’s arXiv page; `Paper` links point to the official publication or submission when an arXiv version could not be verified. The reviewed versions and evidence pointers remain in the individual records.
 
@@ -23,7 +23,6 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 - **MMA-Bench** — MMA: Multimodal Memory Agent. [arXiv](https://arxiv.org/abs/2602.16493)
 - **MMDU** — MMDU: A Multi-Turn Multi-Image Dialog Understanding Benchmark and Instruction-Tuning Dataset for LVLMs. [arXiv](https://arxiv.org/abs/2406.11833)
 - **MMRC** — MMRC: A Large-Scale Benchmark for Understanding Multimodal Large Language Model in Real-World Conversation. [arXiv](https://arxiv.org/abs/2502.11903)
-- **MOSAIC** — MOSAIC: An Omni-Modal Benchmark for Long-Term Memory and Cross-Modal Reasoning in Conversational Agents. [Paper](https://openreview.net/forum?id=juBgXjNvg4)
 - **Persona-MME** — PersonaVLM: Long-Term Personalized Multimodal LLMs. [arXiv](https://arxiv.org/abs/2604.13074)
 - **RefMem-Bench** — Connecting the Dots: Benchmarking Reflective Memory in Long-Horizon Dialogue. [arXiv](https://arxiv.org/abs/2606.01223)
 - **SMMBench** — SMMBench: A Benchmark for Source-Distributed Multimodal Agent Memory. [arXiv](https://arxiv.org/abs/2605.15710)

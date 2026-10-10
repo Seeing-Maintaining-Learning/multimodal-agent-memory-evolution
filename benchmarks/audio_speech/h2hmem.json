@@ -45,5 +45,43 @@
     }
   ],
   "review_status": "verified",
-  "adjudication_notes": []
+  "adjudication_notes": [],
+  "manuscript_table_annotation": {
+    "reviewed_on": "2026-10-09",
+    "family": "Audio",
+    "source_url": "https://arxiv.org/abs/2606.09461v1",
+    "pdf_sha256": "7350a3f6b59b58cce60ed6e2fd00d5d170ce841c1c4b5eb15d668eefa6eb5304",
+    "shared_scores": {
+      "CE": "direct",
+      "LE": "direct",
+      "SC": "direct",
+      "CF": "direct",
+      "UQ": "direct",
+      "MA": "none"
+    },
+    "modality_scores": {
+      "SP": "partial",
+      "AC": "none",
+      "RP": "partial"
+    },
+    "evidence": [
+      {
+        "section": "Sections 3.1–3.3 and 4.3; Figure 4; Table 6",
+        "pdf_pages": [
+          3,
+          4,
+          5,
+          6,
+          8,
+          9
+        ]
+      }
+    ],
+    "rationale": {
+      "SP": "Partial for the audio panel: participant attribution is scored through text/image QA and RET; supplied speaker IDs do not test acoustic speaker tracking.",
+      "AC": "Absent: inputs comprise participant IDs, text, and images. No audio or acoustic-cue task is specified.",
+      "RP": "Partial: cross-session Knowledge Resolution tests revised facts, an indirect repair proxy; there is no spoken-repair protocol or verification of persistent repair-state mutation."
+    },
+    "caveat": "The requested repository family is retained for consistency. This source evaluates text/image conversations, not acoustic memory."
+  }
 }

@@ -68,5 +68,9 @@
     "primary_modality set to image because images provide the largest share of load-bearing required evidence; video, audio, and text remain operative secondary modalities.",
     "The exact OpenReview posting date is left blank rather than inferred from the search index's rounded '3 months ago' label; the forum and PDF were reviewed on 2026-08-30.",
     "The paper states that the benchmark and evaluation framework are released, but no independently accessible code or data repository was located during review."
-  ]
+  ],
+  "quantitative_inclusion": {
+    "included": false,
+    "reason": "Excluded from the manuscript quantitative snapshot at user request; catalog record retained."
+  }
 }

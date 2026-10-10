@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <strong>296 architecture records · 83 benchmark and evaluation resources · 5 modality categories</strong>
+  <strong>297 architecture records · 82 benchmark and evaluation resources · 5 modality categories</strong>
 </p>
 
 <p align="center">
@@ -218,7 +218,7 @@ T2 operations include **update**, **consolidation**, **revision and conflict res
 | Memory management policy | The reusable rules, instructions, procedures, or learned components governing how memory is written, maintained, or retrieved. |
 | Benchmark / evaluation resource | A resource used to evaluate memory or a relevant task or component. A paper may contribute both an architecture and a benchmark. |
 
-The benchmark lists cover the **83 resources selected in manuscript Table 2**, including dedicated memory tests, broader task and component evaluations, and scoped comparisons. LoCoMo uses caption-based QA in the surveyed setting; CarMem is text-only; WorldLines uses semantic household traces. Lists here follow each record’s primary modality, which can differ from its Table 2 panel grouping.
+The benchmark lists cover the **82 resources selected in manuscript Table 2**, including dedicated memory tests, broader task and component evaluations, and scoped comparisons. LoCoMo uses caption-based QA in the surveyed setting; CarMem is text-only; WorldLines uses semantic household traces. Lists here follow each record’s primary modality, which can differ from its Table 2 panel grouping.
 
 Paper lists are alphabetical by system or benchmark name. `arXiv` links point to the paper’s arXiv page; `Paper` links point to the official publication or submission when an arXiv version could not be verified. The reviewed versions and evidence pointers remain in the individual records.
 
@@ -226,7 +226,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 
 ## 🖼️ Image
 
-[Image README](architectures/image/README.md) · 63 architecture records · 20 benchmark/evaluation resources
+[Image README](architectures/image/README.md) · 64 architecture records · 19 benchmark/evaluation resources
 
 ### Image Architecture Papers
 
@@ -291,6 +291,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 - **VisMem** — VisMem: Latent Vision Memory Unlocks Potential of Vision-Language Models. [arXiv](https://arxiv.org/abs/2511.11007)
 - **VISOR** — VISOR: Visual Evidence Space for Robust GUI and Visual Agent Reasoning. [arXiv](https://arxiv.org/abs/2604.09508)
 - **VisRAG** — VisRAG: Vision-based Retrieval-augmented Generation on Multi-modality Documents. [arXiv](https://arxiv.org/abs/2410.10594)
+- **VISTA** — VISTA: A Visual Harness for Reasoning in an Interactive World. [arXiv](https://arxiv.org/abs/2610.02200)
 - **Visual Memory QA** — Visual Memory QA: Your Personal Photo and Video Search Agent. [Paper](https://doi.org/10.1609/aaai.v31i1.10537)
 - **VisualMem** — Personal Visual Memory from Explicit and Implicit Evidence. [arXiv](https://arxiv.org/abs/2605.28806)
 
@@ -311,7 +312,6 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 - **MMA-Bench** — MMA: Multimodal Memory Agent. [arXiv](https://arxiv.org/abs/2602.16493)
 - **MMDU** — MMDU: A Multi-Turn Multi-Image Dialog Understanding Benchmark and Instruction-Tuning Dataset for LVLMs. [arXiv](https://arxiv.org/abs/2406.11833)
 - **MMRC** — MMRC: A Large-Scale Benchmark for Understanding Multimodal Large Language Model in Real-World Conversation. [arXiv](https://arxiv.org/abs/2502.11903)
-- **MOSAIC** — MOSAIC: An Omni-Modal Benchmark for Long-Term Memory and Cross-Modal Reasoning in Conversational Agents. [Paper](https://openreview.net/forum?id=juBgXjNvg4)
 - **Persona-MME** — PersonaVLM: Long-Term Personalized Multimodal LLMs. [arXiv](https://arxiv.org/abs/2604.13074)
 - **RefMem-Bench** — Connecting the Dots: Benchmarking Reflective Memory in Long-Horizon Dialogue. [arXiv](https://arxiv.org/abs/2606.01223)
 - **SMMBench** — SMMBench: A Benchmark for Source-Distributed Multimodal Agent Memory. [arXiv](https://arxiv.org/abs/2605.15710)

@@ -2,7 +2,7 @@
 
 [Survey README](../../README.md) · [Scope & Terminology](../../README.md#scope--terminology) · [Taxonomy](../../README.md#taxonomy)
 
-**63 architecture records** and **20 benchmark/evaluation resources**, grouped by the repository’s primary modality labels.
+**64 architecture records** and **19 benchmark/evaluation resources**, grouped by the repository’s primary modality labels.
 
 ## Table of Contents
 
@@ -74,6 +74,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 - **VisMem** — VisMem: Latent Vision Memory Unlocks Potential of Vision-Language Models. [arXiv](https://arxiv.org/abs/2511.11007)
 - **VISOR** — VISOR: Visual Evidence Space for Robust GUI and Visual Agent Reasoning. [arXiv](https://arxiv.org/abs/2604.09508)
 - **VisRAG** — VisRAG: Vision-based Retrieval-augmented Generation on Multi-modality Documents. [arXiv](https://arxiv.org/abs/2410.10594)
+- **VISTA** — VISTA: A Visual Harness for Reasoning in an Interactive World. [arXiv](https://arxiv.org/abs/2610.02200)
 - **Visual Memory QA** — Visual Memory QA: Your Personal Photo and Video Search Agent. [Paper](https://doi.org/10.1609/aaai.v31i1.10537)
 - **VisualMem** — Personal Visual Memory from Explicit and Implicit Evidence. [arXiv](https://arxiv.org/abs/2605.28806)
 
@@ -96,7 +97,6 @@ Benchmark coverage includes dedicated memory tests, broader evaluations, and sco
 - **MMA-Bench** — MMA: Multimodal Memory Agent. [arXiv](https://arxiv.org/abs/2602.16493)
 - **MMDU** — MMDU: A Multi-Turn Multi-Image Dialog Understanding Benchmark and Instruction-Tuning Dataset for LVLMs. [arXiv](https://arxiv.org/abs/2406.11833)
 - **MMRC** — MMRC: A Large-Scale Benchmark for Understanding Multimodal Large Language Model in Real-World Conversation. [arXiv](https://arxiv.org/abs/2502.11903)
-- **MOSAIC** — MOSAIC: An Omni-Modal Benchmark for Long-Term Memory and Cross-Modal Reasoning in Conversational Agents. [Paper](https://openreview.net/forum?id=juBgXjNvg4)
 - **Persona-MME** — PersonaVLM: Long-Term Personalized Multimodal LLMs. [arXiv](https://arxiv.org/abs/2604.13074)
 - **RefMem-Bench** — Connecting the Dots: Benchmarking Reflective Memory in Long-Horizon Dialogue. [arXiv](https://arxiv.org/abs/2606.01223)
 - **SMMBench** — SMMBench: A Benchmark for Source-Distributed Multimodal Agent Memory. [arXiv](https://arxiv.org/abs/2605.15710)

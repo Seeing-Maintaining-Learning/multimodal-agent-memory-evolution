@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "vista-2026",
+  "architecture_name": "VISTA",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "VISTA: A Visual Harness for Reasoning in an Interactive World",
+    "authors": [
+      "Qiushi Han",
+      "Keya Hu",
+      "Linlu Qiu",
+      "Cathy Wu",
+      "Kaiming He"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1; official project method reviewed 2026-10-09",
+      "published_date": "2026-10-01",
+      "source_url": "https://arxiv.org/abs/2610.02200",
+      "pdf_url": "https://arxiv.org/pdf/2610.02200",
+      "doi": "10.48550/arXiv.2610.02200"
+    },
+    "reviewed_on": "2026-10-09",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "visual_history",
+      "memory_component": "lossless indexed visual interaction history",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Lossless visual memory",
+          "page": "official project, accessed 2026-10-09",
+          "figure_or_table": "",
+          "source_url": "https://vista-research.github.io/",
+          "paraphrase": "Every environment-returned frame is retained losslessly with turn and frame indices. inspect and read_pixels revisit original frames, regions, and pixels."
+        }
+      ]
+    },
+    {
+      "path_id": "revisable_notes",
+      "memory_component": "durable game understanding and current-level notes",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "The Complete Pipeline: Reason, then act",
+          "page": "official project, accessed 2026-10-09",
+          "figure_or_table": "",
+          "source_url": "https://vista-research.github.io/",
+          "paraphrase": "GUIDE.md retains durable revisable game understanding; WORKING.md retains current-level state. Notes, visual memory, and action history survive context restarts."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "The Complete Pipeline: Reason, then act",
+          "page": "official project, accessed 2026-10-09",
+          "figure_or_table": "",
+          "source_url": "https://vista-research.github.io/",
+          "paraphrase": "The same reusable prompt asks the agent to update its compact game model when new evidence changes what is supported; the notes change, without evidence that the memory-management policy itself is persistently revised."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Original visual evidence and revisable explicit notes are separately addressable and jointly used for subsequent reasoning and action.",
+    "highest_management_tier": "T2"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Classification verified against the official project method; no new global recoding of the corpus was performed.",
+    "Primary image modality reflects the PNG observation interface; interactive gameplay does not by itself establish a GUI-memory architecture.",
+    "Revision of notes changes memory state under stable instructions, supporting T2 rather than T3."
+  ]
+}
