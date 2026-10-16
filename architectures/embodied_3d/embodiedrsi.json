@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "embodiedrsi-2026",
+  "architecture_name": "EmbodiedRSI",
+  "primary_modality": "embodied_3d",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "EmbodiedRSI: Active Continual Robot Learning Through Hypothesis-Guided Co-Evolution",
+    "authors": [
+      "Python Song",
+      "Zhixuan Liang",
+      "Kelsey Fu",
+      "Mengdi Wang",
+      "Junfeng Yang",
+      "Shilong Liu"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2026-10-07",
+      "source_url": "https://arxiv.org/abs/2610.10498v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.10498v1",
+      "doi": "10.48550/arXiv.2610.10498"
+    },
+    "reviewed_on": "2026-10-16",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "m1_native_physical_experience",
+      "memory_component": "native robot execution trajectories retained as M1 physical experience, with associated action, telemetry, outcome, tool-call and reward fields",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "Section 3.3: Hierarchical Memory and Reward-Grounded Memory Learning",
+          "page": "5-6",
+          "figure_or_table": "Figure 2; Equations 8-9",
+          "paraphrase": "M1 records robot execution trajectories and associated execution fields. The Slow System retrieves records from M1-M3; the operator preserves raw M1 records while updating the index or M3."
+        },
+        {
+          "section": "Author clarification relayed by the user on 2026-10-16; supplementary to Section 3.3",
+          "page": "Not applicable: author correspondence, not a published page",
+          "figure_or_table": "",
+          "paraphrase": "The user reports that the authors explicitly confirmed M1 physical experience is retained as native trajectories. This resolves the previous uncertainty about whether M1 exists only as abstract descriptions. The clarification does not separately establish retention of RGB-D images or any specific sensor-file format."
+        }
+      ]
+    },
+    {
+      "path_id": "m2_hypothesis_graph",
+      "memory_component": "persistent code and skill hypotheses, confidence counts, refinement history, and evidence-supported code-skill relations",
+      "leaf": "spatial_temporal_and_cross_modal_structured_memory",
+      "storage_indexing": [
+        "graph_relational_store",
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "unclear",
+      "evidence": [
+        {
+          "section": "Sections 3.2-3.3",
+          "page": "4-5",
+          "figure_or_table": "Figures 2-3; Equations 4-9",
+          "paraphrase": "M2 retains code and skill hypotheses with support/refutation counts, directed refinement edges, and evidence-supported works-with relations. Before later physical episodes, the Fast System retrieves M2 hypotheses together with M3 cognition to guide candidate experiments. The graph is persistent decision-support memory rather than only an illustration of the method."
+        }
+      ]
+    },
+    {
+      "path_id": "m3_reusable_cognition",
+      "memory_component": "reusable explicit rules and strategies abstracted from execution experience and hypothesis evidence",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "hierarchical_multi_tier_store"
+      ],
+      "retrieval_activation": [
+        "planner_tool_assisted_retrieval"
+      ],
+      "source_accessibility": "unclear",
+      "evidence": [
+        {
+          "section": "Section 3.3",
+          "page": "3, 5-6",
+          "figure_or_table": "Figure 2; Equations 8-10",
+          "paraphrase": "The Slow System abstracts recurring M1 execution records and M2 hypothesis evidence into M3 reusable cognition, depicted as rules and strategies. M3 is retrieved alongside M2 for subsequent experiments. A frozen LLM operator updates the retrieval index or M3 according to a selected memory action while preserving raw M1 records and M2 evidence updates."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [
+    {
+      "leaf": "learned_update_module",
+      "evidence": [
+        {
+          "section": "Section 3.3: Reward-Grounded Memory Learning",
+          "page": "5-6",
+          "figure_or_table": "Figure 2; Equation 10",
+          "paraphrase": "A trainable Manager scores memory-action/target candidates using current experience and retrieved records. Its action space contains Retain, Merge, Abstract, Compress, Forget, and Skip. PPO trains the selection policy using subsequent task improvement, uncertainty reduction, and experiment cost. This supports learned memory-operation selection, but does not by itself establish deployment-time policy updates."
+        }
+      ]
+    },
+    {
+      "leaf": "llm_based_memory_editing",
+      "evidence": [
+        {
+          "section": "Section 3.3: Reward-Grounded Memory Learning",
+          "page": "5-6",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "The frozen Qwen3.5-122B-A10B operator executes the Manager-selected action and target to update the retrieval index or M3. Memory contents can therefore change without requiring an update to the operator model."
+        }
+      ]
+    },
+    {
+      "leaf": "memory_merging_and_deduplication",
+      "evidence": [
+        {
+          "section": "Section 3.3: Reward-Grounded Memory Learning",
+          "page": "5",
+          "figure_or_table": "Figure 2",
+          "paraphrase": "Merge is an explicit candidate memory operation applied to selected target records or evidence groups. The main text supports merging; it does not separately establish a particular deduplication algorithm."
+        }
+      ]
+    },
+    {
+      "leaf": "experience_abstraction",
+      "evidence": [
+        {
+          "section": "Section 3.3: Hierarchical Memory",
+          "page": "5",
+          "figure_or_table": "Figure 2; Equations 8-9",
+          "paraphrase": "Across episodes, recurring execution experience in M1 and hypothesis evidence in M2 are abstracted into reusable M3 cognition. The hierarchy preserves experience for later adaptation rather than only the current task context."
+        }
+      ]
+    },
+    {
+      "leaf": "evidence_weighted_belief_revision",
+      "evidence": [
+        {
+          "section": "Section 3.2: Hypothesis Graph and Confidence",
+          "page": "4-5",
+          "figure_or_table": "Figure 3; Equations 4-7",
+          "paraphrase": "Matched physical trials update hypothesis support/refutation counts and posterior confidence. Positive measured code-skill joint gain supports works-with relations, while revision edges retain hypothesis history. These updates change stored evidence and beliefs; posterior changes alone are not counted as memory-management-policy evolution."
+        }
+      ]
+    }
+  ],
+  "t3_policy_evolution_targets": [
+    {
+      "leaf": "maintenance_policy_evolution",
+      "evidence": [
+        {
+          "section": "Section 3.3: Reward-Grounded Memory Learning and Closed-Loop Reward and RL Training",
+          "page": "5-6",
+          "figure_or_table": "Figure 2; Equation 10",
+          "paraphrase": "The Manager selects a memory action and target records. Candidate operations include Retain, Merge, Abstract, Compress, Forget, and Skip. PPO optimizes its selection policy using downstream task improvement, uncertainty reduction and experiment cost."
+        },
+        {
+          "section": "Author clarification relayed by the user on 2026-10-16; supplementary to Section 3.3",
+          "page": "Not applicable: author correspondence, not a published page",
+          "figure_or_table": "",
+          "paraphrase": "The user reports that the authors confirmed the PPO-based Memory Manager updates its management policy during continuous interactive learning. The Manager is an MLP producing action probabilities through softmax. The runtime policy update, rather than the presence of an MLP or softmax alone, supports T3: feedback persistently changes the policy selecting subsequent memory-management operations."
+        }
+      ]
+    }
+  ],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Author-confirmed native M1 execution trajectories are retained alongside the M2 hypothesis graph and M3 reusable rules/strategies. The Manager retrieves across M1-M3, and M2/M3 guide later experiments, combining native source evidence and explicit abstractions in one operative memory hierarchy.",
+    "highest_management_tier": "T3"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Re-adjudicated on 2026-10-16 following author clarification supplied by the user. The two clarifications are recorded as author correspondence, distinct from published-paper evidence; no independently obtained correspondence transcript or public URL is claimed.",
+    "T3 supersedes the provisional T2 assignment because the authors confirmed that PPO updates the Memory Manager policy during continuous interactive learning. An MLP/softmax action selector alone would not establish T3.",
+    "Maintenance-policy evolution is supported by feedback-driven changes to the policy selecting retention, merging, abstraction, compression and forgetting. No separate retrieval-policy evolution or Architect-based instruction evolution is asserted without further evidence.",
+    "Hybrid is now supported by native M1 execution trajectories together with M2 structured hypotheses and M3 abstract rules/strategies. Source-preserving/modality-native and cross-represented explicit parent families are both counted. The exclusive representation matrix counts this architecture once in Hybrid, not once in each exclusive row.",
+    "Native M1 retention does not establish that raw RGB, depth images or every possible sensor stream is preserved. No such unsupported modality or file-format claims are added.",
+    "The Manager MLP is a memory-management policy, not an additional latent/parametric memory representation. Its trainability is therefore not counted as a separate Axis I family.",
+    "The Architect instruction-refinement mechanism remains unspecified; T3 does not rely on this candidate route. The v1 PDF references appendices not included in the reviewed 12-page PDF, so implementation details beyond the author clarifications remain unverified.",
+    "Included as one embodied architecture/method. Evaluation on existing benchmark environments does not create a new benchmark record."
+  ]
+}
