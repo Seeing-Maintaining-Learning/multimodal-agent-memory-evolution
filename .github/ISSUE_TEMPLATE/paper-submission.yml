@@ -6,9 +6,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for contributing! The easiest way to fill this in is the guided form at
-        https://seeing-maintaining-learning.github.io/contribute/ — it classifies the paper and pre-fills everything below.
-        Maintainers verify each submission against the paper before adding a record.
+        Thanks for contributing! **Only the arXiv link and the primary modality are required** — everything else is optional
+        and just helps maintainers. The guided form at https://seeing-maintaining-learning.github.io/contribute/ can pre-fill
+        this for you. Maintainers verify each submission against the paper before adding a record.
   - type: input
     id: arxiv
     attributes:
@@ -26,8 +26,6 @@ body:
     attributes:
       label: System or benchmark name
       placeholder: e.g. M3-Agent
-    validations:
-      required: true
   - type: dropdown
     id: kind
     attributes:
@@ -35,8 +33,6 @@ body:
       options:
         - Architecture (memory system)
         - Benchmark / evaluation resource
-    validations:
-      required: true
   - type: dropdown
     id: modality
     attributes:
@@ -54,7 +50,7 @@ body:
     id: classification
     attributes:
       label: Suggested classification
-      description: Representation form(s), storage, retrieval, management tier (T1/T2/T3), T2 operations, T3 policy targets.
+      description: Optional. Representation form(s), storage, retrieval, management tier (T1/T2/T3), T2 operations, T3 policy targets.
       placeholder: |
         - Representation: Perception-to-text records & summaries
         - Storage / indexing: Vector-indexed collection
@@ -65,9 +61,7 @@ body:
     id: evidence
     attributes:
       label: Evidence in the paper
-      description: Section, page, or figure that describes the memory mechanism.
-    validations:
-      required: true
+      description: Optional. Section, page, or figure that describes the memory mechanism.
   - type: dropdown
     id: relation
     attributes:
@@ -78,9 +72,7 @@ body:
   - type: checkboxes
     id: scope
     attributes:
-      label: Scope check
+      label: Scope check (if you know)
       options:
         - label: Persistent memory is operationally important in this work (not just a context window).
-          required: true
         - label: At least one non-text modality takes part in forming, storing, retrieving, maintaining, or using the memory.
-          required: true

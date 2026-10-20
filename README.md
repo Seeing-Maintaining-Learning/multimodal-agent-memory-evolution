@@ -15,7 +15,10 @@
 </p>
 
 <p align="center">
-  <strong><a href="https://openreview.net/forum?id=5u8ag6LBFH">View the paper on OpenReview</a></strong>
+  <strong><a href="https://arxiv.org/abs/2610.19366">Read the paper on arXiv</a></strong> ·
+  <strong><a href="https://seeing-maintaining-learning.github.io/">Explore the interactive website</a></strong>
+  <br>
+  <sub>Also on <a href="https://huggingface.co/papers/2610.19366">Hugging Face</a> and <a href="https://openreview.net/forum?id=5u8ag6LBFH">OpenReview</a></sub>
 </p>
 
 <p align="center">
