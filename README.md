@@ -180,6 +180,7 @@ This repository accompanies the survey with a curated reading list and annotated
 - [🎧 Audio and Speech](#audio-and-speech)
 - [🖥️ GUI](#gui)
 - [🤖 Embodied and 3D](#embodied-and-3d)
+- [Contributing](#contributing)
 - [Repository Guide](#repository-guide)
 
 ## Taxonomy
@@ -670,6 +671,14 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 - **WorldMemArena** — WorldMemArena: Evaluating Multimodal Agent Memory Through Action-World Interaction. [arXiv](https://arxiv.org/abs/2605.29341)
 
 [Back to contents](#table-of-contents)
+
+## Contributing
+
+Know a multimodal agent memory system or benchmark we missed? Use the
+**[guided submission form](https://seeing-maintaining-learning.github.io/contribute/)** on the survey website.
+It looks up the paper, checks whether it is already here, walks you through the taxonomy, and opens a pre-filled
+[issue](../../issues/new?template=paper-submission.yml). You can also open the issue form directly.
+A bot checks for duplicates, and maintainers verify the classification against the paper before adding a record.
 
 ## Repository Guide
 

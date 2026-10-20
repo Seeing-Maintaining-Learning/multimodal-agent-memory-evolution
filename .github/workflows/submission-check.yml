@@ -1,0 +1,78 @@
+name: Check paper submission
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: read
+  issues: write
+
+# opened + labeled fire together for form submissions; serialize per issue so only one comment is created.
+concurrency:
+  group: submission-check-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    if: contains(github.event.issue.labels.*.name, 'paper-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Look up arXiv and check for duplicates
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const MARKER = '<!-- submission-check -->';
+            const body = context.payload.issue.body || '';
+            // New-style arXiv IDs: YYMM.NNNN (to 2014) or YYMM.NNNNN (2015 on), not part of a longer number.
+            const m = body.match(/(?<![\d.])(\d{2}(?:0[1-9]|1[0-2])\.(?:\d{5}|\d{4}))(?:v\d+)?(?![\d])/);
+            const lines = [MARKER];
+
+            if (!m) {
+              lines.push('⚠️ No arXiv ID found. If the paper has no arXiv version, a maintainer will check the link manually.');
+            } else {
+              const id = m[1];
+              // Search every corpus record for this arXiv ID.
+              const hits = [];
+              const idRe = new RegExp('(?<![\\d.])' + id.replace('.', '\\.') + '(?!\\d)');
+              const walk = (dir) => {
+                if (!fs.existsSync(dir)) return;
+                for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+                  const p = path.join(dir, e.name);
+                  if (e.isDirectory()) walk(p);
+                  else if (e.name.endsWith('.json') && idRe.test(fs.readFileSync(p, 'utf8'))) hits.push(p);
+                }
+              };
+              walk('architectures');
+              walk('benchmarks');
+
+              let title = null;
+              try {
+                const res = await fetch(`https://export.arxiv.org/api/query?id_list=${id}`);
+                const xml = await res.text();
+                const t = xml.match(/<entry>[\s\S]*?<title>([\s\S]*?)<\/title>/);
+                title = t ? t[1].replace(/\s+/g, ' ').trim() : null;
+              } catch (e) {
+                core.warning(`arXiv lookup failed: ${e}`);
+              }
+
+              lines.push(title ? `✅ arXiv **${id}** resolves to: *${title}*` : `⚠️ Could not resolve arXiv **${id}**. Please double-check the link.`);
+              if (hits.length) {
+                lines.push('', `🔁 **Possible duplicate.** This arXiv ID already appears in:`);
+                for (const h of hits) lines.push(`- [\`${h}\`](${context.payload.repository.html_url}/blob/main/${h})`);
+                lines.push('', 'If this is a correction to an existing record, please say what should change.');
+              } else {
+                lines.push('', '🆕 Not yet in the corpus. A maintainer will review the classification and evidence.');
+              }
+            }
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.issue.number;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number });
+            const mine = comments.find((c) => c.user.type === 'Bot' && c.body.includes(MARKER));
+            const text = lines.join('\n');
+            if (mine) await github.rest.issues.updateComment({ owner, repo, comment_id: mine.id, body: text });
+            else await github.rest.issues.createComment({ owner, repo, issue_number, body: text });

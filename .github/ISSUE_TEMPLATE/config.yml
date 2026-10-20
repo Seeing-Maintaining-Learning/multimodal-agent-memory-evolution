@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Guided paper submission (recommended)
+    url: https://seeing-maintaining-learning.github.io/contribute/
+    about: Classify a paper step by step and open a pre-filled submission.
+  - name: Browse the survey website
+    url: https://seeing-maintaining-learning.github.io/
+    about: Explore all systems and benchmarks before submitting.
