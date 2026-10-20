@@ -681,7 +681,8 @@ Know a multimodal agent memory system or benchmark we missed? Use the
 **[guided submission form](https://seeing-maintaining-learning.github.io/contribute/)** on the survey website.
 It looks up the paper, checks whether it is already here, walks you through the taxonomy, and opens a pre-filled
 [issue](../../issues/new?template=paper-submission.yml). You can also open the issue form directly.
-A bot checks for duplicates, and maintainers verify the classification against the paper before adding a record.
+A bot checks for duplicates. When a maintainer labels the issue `accepted`, another bot drafts the JSON record and
+opens a pull request; once that is merged, the paper appears on the website within an hour.
 
 ## Repository Guide
 
