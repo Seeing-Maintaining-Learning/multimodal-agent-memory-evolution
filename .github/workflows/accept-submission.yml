@@ -1,0 +1,77 @@
+name: Draft record for accepted submission
+
+# When a maintainer labels a paper submission "accepted", build a draft JSON record from the
+# issue and open a pull request. Merging that PR publishes the paper on the survey website
+# (the site checks for corpus changes every hour).
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: accept-submission-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    if: github.event.label.name == 'accepted' && contains(github.event.issue.labels.*.name, 'paper-submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build draft record and open a pull request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const { execFileSync } = require('child_process');
+            const { sections, buildRecord, fetchMeta, freePath } = require('./.github/scripts/draft-record.js');
+
+            const issue = context.payload.issue;
+            const { owner, repo } = context.repo;
+            const say = (body) => github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body });
+
+            const id = ((sections(issue.body)['arXiv link'] || '').match(/(\d{4}\.\d{4,5})/) || [])[1];
+            const arxiv = await fetchMeta(id);
+            let built;
+            try {
+              built = buildRecord({ body: issue.body, number: issue.number, arxiv, today: new Date().toISOString().slice(0, 10) });
+            } catch (e) {
+              await say(`⚠️ Could not build a draft record: ${e.message}. Please add the record manually.`);
+              return;
+            }
+            const rel = freePath(process.cwd(), built.relPath);
+            fs.mkdirSync(path.dirname(rel), { recursive: true });
+            fs.writeFileSync(rel, JSON.stringify(built.record, null, 2) + '\n');
+
+            const branch = `submission/issue-${issue.number}`;
+            const name = built.record.architecture_name || built.record.benchmark_name;
+            const git = (...args) => execFileSync('git', args, { stdio: 'inherit' });
+            git('config', 'user.name', 'github-actions[bot]');
+            git('config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com');
+            git('checkout', '-B', branch);
+            git('add', rel);
+            git('commit', '-m', `Add ${name} (draft from #${issue.number})`);
+            git('push', '--force', 'origin', branch);
+
+            const prBody = [
+              `Draft record generated from #${issue.number}. Closes #${issue.number}.`,
+              '',
+              `- File: \`${rel}\``,
+              `- Metadata source: ${arxiv ? 'Hugging Face / arXiv' : 'issue fields only (lookup failed)'}`,
+              '',
+              'Please check the classification and fill in `memory_component`, evidence, and any `unclear` fields before merging.',
+              'Records without a tier or representation still appear on the website under "Recently added — classification pending".',
+            ].join('\n');
+            try {
+              const pr = await github.rest.pulls.create({ owner, repo, head: branch, base: 'main', title: `Add ${name}`, body: prBody });
+              await say(`🎉 Accepted! Draft record opened in #${pr.data.number}. Once it is merged, the paper appears on https://seeing-maintaining-learning.github.io/ within an hour.`);
+            } catch (e) {
+              // Repos that block Actions from creating PRs: hand maintainers a one-click link instead.
+              const url = `${context.payload.repository.html_url}/compare/main...${encodeURIComponent(branch)}?expand=1&title=${encodeURIComponent(`Add ${name}`)}&body=${encodeURIComponent(prBody)}`;
+              await say(`🎉 Accepted! A draft record is on branch \`${branch}\`. [Create the pull request](${url}); once it is merged, the paper appears on the website within an hour.`);
+            }
