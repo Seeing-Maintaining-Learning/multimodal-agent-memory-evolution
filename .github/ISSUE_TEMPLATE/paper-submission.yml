@@ -1,0 +1,86 @@
+name: Submit a paper
+description: Suggest a multimodal agent memory system or benchmark for the survey corpus.
+title: "[Paper] "
+labels: ["paper-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing! The easiest way to fill this in is the guided form at
+        https://seeing-maintaining-learning.github.io/contribute/ — it classifies the paper and pre-fills everything below.
+        Maintainers verify each submission against the paper before adding a record.
+  - type: input
+    id: arxiv
+    attributes:
+      label: arXiv link
+      description: arXiv abstract URL or ID (or another stable paper URL if there is no arXiv version).
+      placeholder: https://arxiv.org/abs/2610.19366
+    validations:
+      required: true
+  - type: input
+    id: paper_title
+    attributes:
+      label: Paper title
+  - type: input
+    id: system_name
+    attributes:
+      label: System or benchmark name
+      placeholder: e.g. M3-Agent
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Record type
+      options:
+        - Architecture (memory system)
+        - Benchmark / evaluation resource
+    validations:
+      required: true
+  - type: dropdown
+    id: modality
+    attributes:
+      label: Primary modality
+      description: The modality that supplies the central persistent experience.
+      options:
+        - Image
+        - Video & streaming
+        - Audio & speech
+        - GUI & computer use
+        - Embodied & 3D
+    validations:
+      required: true
+  - type: textarea
+    id: classification
+    attributes:
+      label: Suggested classification
+      description: Representation form(s), storage, retrieval, management tier (T1/T2/T3), T2 operations, T3 policy targets.
+      placeholder: |
+        - Representation: Perception-to-text records & summaries
+        - Storage / indexing: Vector-indexed collection
+        - Retrieval / activation: Similarity search
+        - Suggested tier: T2 Dynamic memory
+        - T2 operations: Update, Consolidation
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence in the paper
+      description: Section, page, or figure that describes the memory mechanism.
+    validations:
+      required: true
+  - type: dropdown
+    id: relation
+    attributes:
+      label: Your relation to the paper
+      options:
+        - I am an author of this paper
+        - I am not an author
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: Persistent memory is operationally important in this work (not just a context window).
+          required: true
+        - label: At least one non-text modality takes part in forming, storing, retrieving, maintaining, or using the memory.
+          required: true
