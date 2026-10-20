@@ -8,6 +8,11 @@ permissions:
   contents: read
   issues: write
 
+# opened + labeled fire together for form submissions; serialize per issue so only one comment is created.
+concurrency:
+  group: submission-check-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
 jobs:
   check:
     if: contains(github.event.issue.labels.*.name, 'paper-submission')
@@ -22,7 +27,8 @@ jobs:
             const path = require('path');
             const MARKER = '<!-- submission-check -->';
             const body = context.payload.issue.body || '';
-            const m = body.match(/(\d{4}\.\d{4,5})(?:v\d+)?/);
+            // New-style arXiv IDs: YYMM.NNNN (to 2014) or YYMM.NNNNN (2015 on), not part of a longer number.
+            const m = body.match(/(?<![\d.])(\d{2}(?:0[1-9]|1[0-2])\.(?:\d{5}|\d{4}))(?:v\d+)?(?![\d])/);
             const lines = [MARKER];
 
             if (!m) {
@@ -31,12 +37,13 @@ jobs:
               const id = m[1];
               // Search every corpus record for this arXiv ID.
               const hits = [];
+              const idRe = new RegExp('(?<![\\d.])' + id.replace('.', '\\.') + '(?!\\d)');
               const walk = (dir) => {
                 if (!fs.existsSync(dir)) return;
                 for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
                   const p = path.join(dir, e.name);
                   if (e.isDirectory()) walk(p);
-                  else if (e.name.endsWith('.json') && fs.readFileSync(p, 'utf8').includes(id)) hits.push(p);
+                  else if (e.name.endsWith('.json') && idRe.test(fs.readFileSync(p, 'utf8'))) hits.push(p);
                 }
               };
               walk('architectures');
