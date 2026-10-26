@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <strong>297 architecture records · 82 benchmark and evaluation resources · 5 modality categories</strong>
+  <strong>299 architecture records · 82 benchmark and evaluation resources · 5 modality categories</strong>
 </p>
 
 <p align="center">
@@ -230,7 +230,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 
 ## 🖼️ Image
 
-[Image README](architectures/image/README.md) · 64 architecture records · 19 benchmark/evaluation resources
+[Image README](architectures/image/README.md) · 65 architecture records · 19 benchmark/evaluation resources
 
 ### Image Architecture Papers
 
@@ -278,6 +278,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 - **PMMC** — PMMC: Prospective Multimodal Memory Compilation for Long-Term LVLM Agents. [arXiv](https://arxiv.org/abs/2608.00962)
 - **PolarMem** — PolarMem: A Training-Free Polarized Latent Graph Memory for Verifiable Vision-Language Models. [arXiv](https://arxiv.org/abs/2602.00415)
 - **Ptah** — Towards Verifiable Multimodal Deep Research: A Multi-Agent Harness for Interleaved Report Generation. [arXiv](https://arxiv.org/abs/2605.29861)
+- **ReflectCAP** — ReflectCAP: Detailed Image Captioning with Reflective Memory. [arXiv](https://arxiv.org/abs/2604.12357)
 - **REVEAL** — REVEAL: Reference-Grounded Reasoning for Multimodal Manipulation Detection. [arXiv](https://arxiv.org/abs/2605.28459)
 - **REVEAL (Retrieval-Augmented Visual-Language Pre-Training)** — REVEAL: Retrieval-Augmented Visual-Language Pre-Training with Multi-Source Multimodal Knowledge Memory. [arXiv](https://arxiv.org/abs/2212.05221)
 - **ROVER** — ROVER: Routing Object-Centric Visual Evidence for Grounded Multi-Image Reasoning. [arXiv](https://arxiv.org/abs/2605.27959)
@@ -480,7 +481,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 
 ## 🖥️ GUI
 
-[GUI README](architectures/gui/README.md) · 41 architecture records · 7 benchmark/evaluation resources
+[GUI README](architectures/gui/README.md) · 42 architecture records · 7 benchmark/evaluation resources
 
 ### GUI Architecture Papers
 
@@ -520,6 +521,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 - **SE-GA** — SE-GA: Memory-Augmented Self-Evolution for GUI Agents. [arXiv](https://arxiv.org/abs/2605.16883)
 - **SKILL.nb** — SKILL.nb: Selective Formalization and Gated Execution for Durable Agent Workflows. [arXiv](https://arxiv.org/abs/2606.08049)
 - **STAMP** — STAMP: Training Explicit Memory for Mobile GUI Agents in Controllable and Scalable Virtual Environments. [arXiv](https://arxiv.org/abs/2605.29324)
+- **SwitchMem** — Learning How to Remember: Memory Modality Selection for GUI Agents. [arXiv](https://arxiv.org/abs/2610.17928)
 - **TGL Proactive Trigger and Routing** — Do Proactive Agents Really Need an LLM to Decide When to Wake and What to Anchor?. [arXiv](https://arxiv.org/abs/2605.30152)
 - **UI-KOBE** — UI-KOBE: Knowledge-Oriented Behavior Exploration for Lightweight Graph-Guided GUI Agents. [arXiv](https://arxiv.org/abs/2605.29534)
 - **UI-Mem** — UI-Mem: Self-Evolving Experience Memory for Online Reinforcement Learning in Mobile GUI Agents. [arXiv](https://arxiv.org/abs/2602.05832)
