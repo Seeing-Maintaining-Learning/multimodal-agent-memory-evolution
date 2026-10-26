@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "reflectcap-2026",
+  "architecture_name": "ReflectCAP",
+  "primary_modality": "image",
+  "secondary_modalities": [
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "ReflectCAP: Detailed Image Captioning with Reflective Memory",
+    "authors": [
+      "Kyungmin Min",
+      "Minbeom Kim",
+      "Kang-il Lee",
+      "Seunghyun Yoon",
+      "Kyomin Jung"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2026-04-14",
+      "source_url": "https://arxiv.org/abs/2604.12357",
+      "pdf_url": "https://arxiv.org/pdf/2604.12357",
+      "doi": "10.48550/arXiv.2604.12357"
+    },
+    "reviewed_on": "2026-10-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "structured_reflection_notes",
+      "memory_component": "Structured Reflection Notes: Avoid Notes for recurring hallucinations and Include Notes for frequently omitted details",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "flat_sequential_record_store"
+      ],
+      "retrieval_activation": [
+        "metadata_spatiotemporal_retrieval"
+      ],
+      "source_accessibility": "none",
+      "evidence": [
+        {
+          "section": "3.1",
+          "page": "",
+          "figure_or_table": "Fig. 2; Algorithm 1",
+          "paraphrase": "A Captioning Agent captions exemplar images zero-shot, a Feedback Agent critiques each caption against the image and a human reference, and a Note Organizer merges recurring issues into at most K Avoid and K Include rules."
+        },
+        {
+          "section": "3.2",
+          "page": "",
+          "figure_or_table": "Algorithm 2",
+          "paraphrase": "At inference each note category is injected whole into its own captioning call (Avoid Notes for a grounded caption, Include Notes for a detailed one), and a third call merges the two captions."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": false,
+    "hybrid_relation": "",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Community submission (corpus issue #8), reviewed against arXiv HTML v1.",
+    "Tier T1: notes are distilled offline from a small exemplar set and then reused unchanged for every test image (Sec. 3.2: 'Once constructed, the Structured Reflection Notes replace the multi-agent pipeline entirely'); Algorithm 2 has no note-revision step. Merging, abstraction, and the K-item cap happen only during offline construction, so they are not counted as inference-time T2 operations.",
+    "In scope through formation: the stored memory is text, but the Feedback Agent critiques each caption against the image, so a non-text modality contributes to forming the memory.",
+    "Retrieval coded as metadata-keyed because each note category is selected by type and injected in full; there is no similarity search."
+  ]
+}

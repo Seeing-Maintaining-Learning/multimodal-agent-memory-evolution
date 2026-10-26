@@ -2,7 +2,7 @@
 
 [Survey README](../../README.md) · [Scope & Terminology](../../README.md#scope--terminology) · [Taxonomy](../../README.md#taxonomy)
 
-**41 architecture records** and **7 benchmark/evaluation resources**, grouped by the repository’s primary modality labels.
+**42 architecture records** and **7 benchmark/evaluation resources**, grouped by the repository’s primary modality labels.
 
 ## Table of Contents
 
@@ -49,6 +49,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 - **SE-GA** — SE-GA: Memory-Augmented Self-Evolution for GUI Agents. [arXiv](https://arxiv.org/abs/2605.16883)
 - **SKILL.nb** — SKILL.nb: Selective Formalization and Gated Execution for Durable Agent Workflows. [arXiv](https://arxiv.org/abs/2606.08049)
 - **STAMP** — STAMP: Training Explicit Memory for Mobile GUI Agents in Controllable and Scalable Virtual Environments. [arXiv](https://arxiv.org/abs/2605.29324)
+- **SwitchMem** — Learning How to Remember: Memory Modality Selection for GUI Agents. [arXiv](https://arxiv.org/abs/2610.17928)
 - **TGL Proactive Trigger and Routing** — Do Proactive Agents Really Need an LLM to Decide When to Wake and What to Anchor?. [arXiv](https://arxiv.org/abs/2605.30152)
 - **UI-KOBE** — UI-KOBE: Knowledge-Oriented Behavior Exploration for Lightweight Graph-Guided GUI Agents. [arXiv](https://arxiv.org/abs/2605.29534)
 - **UI-Mem** — UI-Mem: Self-Evolving Experience Memory for Online Reinforcement Learning in Mobile GUI Agents. [arXiv](https://arxiv.org/abs/2602.05832)

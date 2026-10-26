@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0.0",
+  "record_type": "architecture",
+  "architecture_id": "switchmem-2026",
+  "architecture_name": "SwitchMem",
+  "primary_modality": "gui",
+  "secondary_modalities": [
+    "image",
+    "text"
+  ],
+  "provenance": {
+    "paper_title": "Learning How to Remember: Memory Modality Selection for GUI Agents",
+    "authors": [
+      "Taeyun Roh",
+      "Suhyeong Park",
+      "Gijin Kim",
+      "Wonjune Jang",
+      "Jaewoo Kang"
+    ],
+    "latest_version": {
+      "version_label": "arXiv v1",
+      "published_date": "2026-10-13",
+      "source_url": "https://arxiv.org/abs/2610.17928",
+      "pdf_url": "https://arxiv.org/pdf/2610.17928",
+      "doi": "10.48550/arXiv.2610.17928"
+    },
+    "reviewed_on": "2026-10-26",
+    "supersedes_or_extends": []
+  },
+  "representation_paths": [
+    {
+      "path_id": "screenshot_memory",
+      "memory_component": "image memory: past demonstration steps kept as (instruction, raw screenshot, action)",
+      "leaf": "retained_perceptual_source_evidence",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "direct",
+      "evidence": [
+        {
+          "section": "3.1",
+          "page": "pp. 2-3",
+          "figure_or_table": "Eq. 2",
+          "paraphrase": "Each memory candidate is a valid demonstration step holding a past GUI state and its successful action; the image form keeps the raw screenshot of that state."
+        },
+        {
+          "section": "5; Appendix B.5",
+          "page": "p. 14",
+          "figure_or_table": "Fig. 11",
+          "paraphrase": "Steps are embedded with Qwen3-VL-Embedding-2B and the top-1 step is retrieved once; when the image form is chosen, the full past screenshot is placed in the frozen actor's prompt."
+        }
+      ]
+    },
+    {
+      "path_id": "textual_state_memory",
+      "memory_component": "text memory: the same demonstration steps kept as (instruction, textual state description, action)",
+      "leaf": "perception_to_text_records_and_summaries",
+      "storage_indexing": [
+        "vector_indexed_collection"
+      ],
+      "retrieval_activation": [
+        "similarity_based_retrieval"
+      ],
+      "source_accessibility": "linked_recoverable",
+      "evidence": [
+        {
+          "section": "3.1; Appendix B.1",
+          "page": "pp. 2-3",
+          "figure_or_table": "Eq. 2",
+          "paraphrase": "The text form replaces the screenshot with a textual description of the screen (UI-text annotations, element captions, or a serialized accessibility tree); a shared text-based retriever returns the same step for both forms."
+        }
+      ]
+    }
+  ],
+  "t2_operations": [],
+  "t3_policy_evolution_targets": [],
+  "derived": {
+    "representation_parent_families": [
+      "source_preserving_and_modality_native_memory",
+      "cross_represented_explicit_memory"
+    ],
+    "cross_representation_hybrid": true,
+    "hybrid_relation": "Each retrieved demonstration step exists as both a raw screenshot and a textual state description; a learned router chooses, per step, which form the frozen actor receives.",
+    "highest_management_tier": "T1"
+  },
+  "review_status": "verified",
+  "adjudication_notes": [
+    "Community submission (corpus issue #7), reviewed against arXiv HTML v1. The issue's required modality field read Image while the author's suggested classification gave GUI primary with Image secondary; GUI is used.",
+    "Tier T1: the memory banks are built offline from successful demonstration steps (Appendix B.1: 'The memory bank is constructed once ... It is fixed before calibration and evaluation'); the agent never writes its own steps back during evaluation.",
+    "The modality router (two-layer MLP over actor hidden states and memory embeddings, Sec. 4.2, Eqs. 7-10) is trained offline with the actor frozen and stays fixed at test time. Training-time learning was not counted as T3."
+  ]
+}

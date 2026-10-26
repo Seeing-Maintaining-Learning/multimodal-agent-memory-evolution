@@ -2,7 +2,7 @@
 
 [Survey README](../../README.md) · [Scope & Terminology](../../README.md#scope--terminology) · [Taxonomy](../../README.md#taxonomy)
 
-**64 architecture records** and **19 benchmark/evaluation resources**, grouped by the repository’s primary modality labels.
+**65 architecture records** and **19 benchmark/evaluation resources**, grouped by the repository’s primary modality labels.
 
 ## Table of Contents
 
@@ -57,6 +57,7 @@ Paper lists are alphabetical by system or benchmark name. `arXiv` links point to
 - **PMMC** — PMMC: Prospective Multimodal Memory Compilation for Long-Term LVLM Agents. [arXiv](https://arxiv.org/abs/2608.00962)
 - **PolarMem** — PolarMem: A Training-Free Polarized Latent Graph Memory for Verifiable Vision-Language Models. [arXiv](https://arxiv.org/abs/2602.00415)
 - **Ptah** — Towards Verifiable Multimodal Deep Research: A Multi-Agent Harness for Interleaved Report Generation. [arXiv](https://arxiv.org/abs/2605.29861)
+- **ReflectCAP** — ReflectCAP: Detailed Image Captioning with Reflective Memory. [arXiv](https://arxiv.org/abs/2604.12357)
 - **REVEAL** — REVEAL: Reference-Grounded Reasoning for Multimodal Manipulation Detection. [arXiv](https://arxiv.org/abs/2605.28459)
 - **REVEAL (Retrieval-Augmented Visual-Language Pre-Training)** — REVEAL: Retrieval-Augmented Visual-Language Pre-Training with Multi-Source Multimodal Knowledge Memory. [arXiv](https://arxiv.org/abs/2212.05221)
 - **ROVER** — ROVER: Routing Object-Centric Visual Evidence for Grounded Multi-Image Reasoning. [arXiv](https://arxiv.org/abs/2605.27959)
